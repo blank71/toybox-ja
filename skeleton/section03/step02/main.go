@@ -24,8 +24,10 @@ func main() {
 	})
 
 	// TODO: 山札の前方5枚を手札としcardsに入れる
+	cards := all[:5]
 
 	// TODO: 6枚目以降を新しい山札とする
+	all = all[5:]
 
 	// 手札を表示させます
 	for i, n := range cards {
@@ -43,4 +45,5 @@ func main() {
 			fmt.Println(n)
 		}
 	}
+	fmt.Println(all)
 }
