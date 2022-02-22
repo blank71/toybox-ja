@@ -29,6 +29,7 @@ func main() {
 					break
 				}
 				// TODO: 標準エラー出力に「1以上を入力してください」と表示する
+				fmt.Fprintln(os.Stderr, "1 以上を入力してください")
 
 			}
 
@@ -49,7 +50,7 @@ func main() {
 			fmt.Fprintln(os.Stderr, "これ以上家計簿を増やすことができません")
 			fmt.Fprintln(os.Stderr, "終了します")
 			// TODO: 終了コードを1でプログラムを終了する
-
+			os.Exit(1)
 		}
 	}
 }
