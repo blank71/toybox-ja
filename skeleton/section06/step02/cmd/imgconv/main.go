@@ -10,7 +10,7 @@ import (
 
 var (
 	flagTo   = imgconv.PNG
-	flagFrom = imgconv.JPEG // TODO: imgconv.TIFFに変更
+	flagFrom = imgconv.TIFF // TODO: imgconv.TIFFに変更
 )
 
 func init() {

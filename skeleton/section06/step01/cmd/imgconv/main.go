@@ -7,11 +7,12 @@ import (
 	"os"
 
 	// TODO: imgconvパッケージをインポートする
+	imgconv "github.com/gohandson/toybox-ja/solution/section06/step01"
 )
 
 var (
-	flagTo   = PNG   // TODO: パッケージ名をつける
-	flagFrom = JPEG  // TODO: パッケージ名をつける
+	flagTo   = imgconv.PNG  // TODO: パッケージ名をつける
+	flagFrom = imgconv.JPEG // TODO: パッケージ名をつける
 )
 
 func init() {
@@ -21,7 +22,7 @@ func init() {
 
 func main() {
 	// TODO: convertAllはパッケージ名をつけてエクスポートされたものに変える
-	if err := convertAll(os.Args[1], flagFrom, flagTo); err != nil {
+	if err := imgconv.ConvertAll(os.Args[1], flagFrom, flagTo); err != nil {
 		fmt.Fprintln(os.Stderr, "エラー:", err)
 		os.Exit(1)
 	}

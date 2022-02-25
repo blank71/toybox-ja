@@ -11,7 +11,7 @@ import (
 	"strings"
 
 	// TODO: golang.org/x/image/tiffパッケージをインポートする
-
+	"golang.org/x/image/tiff"
 )
 
 // Formatは画像形式を表す
@@ -21,8 +21,8 @@ const (
 	Unkown Format = iota
 	PNG
 	JPEG
+	TIFF
 	// TODO: TIFFを足す
-
 )
 
 // Stringは画像形式に対応する文字列を返す
@@ -34,6 +34,7 @@ func (f Format) String() string {
 		return "jpeg"
 	case TIFF:
 		// TODO: "tiff"を返す
+		return "TITF"
 
 	}
 	return "unkown"

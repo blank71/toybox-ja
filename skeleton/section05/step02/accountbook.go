@@ -35,6 +35,7 @@ func NewAccountBook(file string) *AccountBook {
 
 func (ab *AccountBook) readItems() {
 	// TODO: ファイルを開き、結果を変数fと変数errに入れる
+	f, err := os.Open(ab.file)
 
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "エラー：", err)
@@ -42,11 +43,12 @@ func (ab *AccountBook) readItems() {
 	}
 
 	// TODO: 関数終了時にファイルを閉じる
-
+	defer f.Close()
 
 	s := bufio.NewScanner(f)
-	for /* TODO: スキャナーを読み込む */ {
+	for s.Scan() /* TODO: スキャナーを読み込む */ {
 		// TODO: 1行分を,で分割する
+		ss := strings.Split(s.Text(), ",")
 
 		if len(ss) != 2 {
 			fmt.Fprintln(os.Stderr, "ファイル形式が不正です")
@@ -54,6 +56,7 @@ func (ab *AccountBook) readItems() {
 		}
 
 		// TODO: ss[1]をint型に変換し、結果を変数priceと変数errに入れる
+		price, err := strconv.Atoi(ss[1])
 
 		if err != nil {
 			fmt.Fprintln(os.Stderr, "エラー：", err)
@@ -63,7 +66,7 @@ func (ab *AccountBook) readItems() {
 		item := &Item{
 			Category: ss[0],
 			// TODO: Priceフィールドをセットする
-
+			Price: price,
 		}
 
 		ab.AddItem(item)
