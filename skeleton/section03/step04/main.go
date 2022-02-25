@@ -104,30 +104,10 @@ func main() {
 		cards = append(cards[:remains], all[:5-remains]...)
 		all = all[5-remains:]
 		// TODO: 順番を並べ替える
-		sort.Slice(cards, func(i, j int) bool {
-			return cards[i].number < cards[j].number
-		})
 
 		// TODO: 手札の表示
-		fmt.Println("手札")
-		for _, c := range cards {
-			fmt.Print(marks[c.suit], " ")
-			switch c.number {
-			case 11:
-				fmt.Println("J")
-			case 12:
-				fmt.Println("Q")
-			case 13:
-				fmt.Println("K")
-			case 14:
-				fmt.Println("A")
-			default:
-				fmt.Println(c.number)
-			}
-		}
-
+		
 		// TODO: キーと値が共にint型のマップ型の変数numCountを作成する
-		numCount := make(map[int]int)
 
 		var maxSame int
 		isStraight := true
@@ -135,7 +115,7 @@ func main() {
 		for i := 0; i < len(cards); i++ {
 			// i番目のカードの番号と同じ番号のカードの枚数をカウントする
 			numCount[cards[i].number]++
-			if maxSame < numCount[cards[i].number] /* TODO: i番目のカードの番号と同じ番号のカード枚数が最大の場合 */ {
+			if /* TODO: i番目のカードの番号と同じ番号のカード枚数が最大の場合 */ {
 				maxSame = numCount[cards[i].number]
 			}
 
@@ -155,7 +135,6 @@ func main() {
 			ratio = 50
 		case maxSame == 4:
 			// TODO: 適切な役名を出力する
-			fmt.Println("フォーカード")
 			ratio = 20
 		case len(numCount) == 2:
 			fmt.Println("フルハウス")
