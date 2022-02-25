@@ -19,10 +19,10 @@ func main() {
 	var answer int
 	fmt.Print("回答>")
 	fmt.Scanln(&answer)
-
-	if answer == 2 {
+	
+	if /* TODO: answerが2の場合 */ {
 		fmt.Println("正解!")
-	} else {
+	} /* それ以外の場合 */ {
 		fmt.Println("不正解!")
 		fmt.Println("答えは2です")
 	}
