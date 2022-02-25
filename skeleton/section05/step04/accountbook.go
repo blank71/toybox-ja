@@ -142,7 +142,6 @@ func (s *Summary) Avg() float64 {
 		return 0
 	}
 	// TODO: 平均を求めて返す
-	return float64(s.Sum / s.Count)
 
 }
 
@@ -159,11 +158,10 @@ func SaveSummary(file string, summaries []*Summary) {
 	// 品目, 個数, 合計, 平均
 	header := []string{"品目", "個数", "合計", "平均"}
 	// TODO: 変数headerをCSVとして書き出す
-	cw.Write(header)
 
 	cw.Flush()
 
-	if err := cw.Error(); /* TODO: 書き込みでエラーが発生していないか確認*/ err != nil {
+	if /* TODO: 書き込みでエラーが発生していないか確認*/; err != nil {
 		fmt.Fprintln(os.Stderr, "エラー：", err)
 		os.Exit(1)
 	}
@@ -175,11 +173,11 @@ func SaveSummary(file string, summaries []*Summary) {
 			strconv.Itoa(s.Count),
 			strconv.Itoa(s.Sum),
 			// TODO: 平均の少数第2位までを文字列にして最後の要素とする
-			fmt.Sprintf("%.2f", s.Avg()),
+
 		})
 	}
 
-	if err := cw.WriteAll(records); /* TODO: recordsをCSVとして書き込む */ err != nil {
+	if err := /* recordsをCSVとして書き込む */; err != nil {
 		fmt.Fprintln(os.Stderr, "エラー：", err)
 		os.Exit(1)
 	}
